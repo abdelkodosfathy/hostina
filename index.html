@@ -23,13 +23,16 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body class="bg-black text-white">
     <!-- Navbar -->
     <header class="fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-md">
-      <div
-        class="w-full mx-auto px-4 py-4 flex items-center justify-between"
-      >
+      <div class="w-full mx-auto px-4 py-4 flex items-center justify-between">
         <!-- Logo -->
         <div class="text-2xl font-bold text-white flex items-center gap-3">
           <img src="/public/hostina.svg" alt="" />
@@ -37,33 +40,64 @@
         </div>
 
         <!-- Menu -->
-        <nav class="hidden md:flex space-x-6 text-white">
-          <a href="#" class="hover:text-gray-300">Domains</a>
-          <a href="#" class="hover:text-gray-300">Hosting</a>
-          <a href="#" class="hover:text-gray-300">Services</a>
-          <a href="#" class="hover:text-gray-300">Contact Us</a>
-          <a href="#" class="hover:text-gray-300">Help</a>
+        <nav class="hidden md:flex space-x-6 text-white text-2xl">
+          <a href="#" class="hover:text-gray-300">
+            Domains
+            <i class="fa fa-angle-down"></i>
+          </a>
+
+          <a href="#" class="hover:text-gray-300">
+            Hosting
+            <i class="fa fa-angle-down"></i>
+          </a>
+
+          <a href="#" class="hover:text-gray-300">
+            Services
+            <i class="fa fa-angle-down"></i>
+          </a>
+
+          <a href="#" class="hover:text-gray-300">
+            Contact Us
+            <i class="fa fa-angle-down"></i>
+          </a>
+
+          <a href="#" class="hover:text-gray-300">
+            Help
+            <i class="fa fa-angle-down"></i>
+          </a>
         </nav>
 
         <!-- Dropdowns -->
         <div class="flex items-center gap-4">
           <!-- Currency Dropdown -->
-          <select
-            class="bg-transparent border border-white text-white px-2 py-1 rounded"
-          >
-            <option class="text-black">USD</option>
-            <option class="text-black">EUR</option>
-            <option class="text-black">EGP</option>
-          </select>
+          <div class="flex border border-white rounded-lg px-2">
+            <div
+              class="w-10 h-10 flex justify-center items-center"
+            >
+              <i class="fa fa-solid fa-dollar"></i>
+            </div>
+            <select
+              class="bg-transparent px-2 py-1 rounded"
+            >
+              <option class="text-black">USD</option>
+              <option class="text-black">EUR</option>
+              <option class="text-black">EGP</option>
+            </select>
+          </div>
 
           <!-- Account Dropdown -->
-          <select
-            class="bg-transparent border border-white text-white px-2 py-1 rounded"
-          >
-            <option class="text-black">My Account</option>
-            <option class="text-black">Login</option>
-            <option class="text-black">Register</option>
-          </select>
+          <div class="flex">
+            <div
+              class="border border-white rounded-lg w-10 h-10 flex justify-center items-center"
+            >
+              <i class="fa fa-solid fa-user"></i>
+            </div>
+            <select class="bg-transparent text-white px-2 py-1 rounded">
+              <option class="text-black" selected>Account</option>
+              <option class="text-black">Login</option>
+              <option class="text-black">Register</option>
+            </select>
+          </div>
         </div>
       </div>
     </header>
@@ -111,7 +145,7 @@
       <div class="w-full mx-auto max-w-[1600px] text-center">
         <div class="flex justify-start mb-2">
           <span
-            class="bg-gray-100 text-black font-semibold px-4 py-3 rounded-lg text-lg"
+            class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg text-lg"
             style="box-shadow: inset 0 2px 1.5px rgba(0, 0, 0, 0.3)"
           >
             Our Features
@@ -205,7 +239,7 @@
       <div class="w-full mx-auto max-w-[1560px] text-center">
         <div class="flex justify-start mb-2">
           <span
-            class="bg-gray-100 text-black font-semibold px-4 py-3 rounded-lg text-lg"
+            class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg text-lg"
             style="box-shadow: inset 0 2px 1.5px rgba(0, 0, 0, 0.3)"
           >
             Our Pricing
@@ -276,86 +310,122 @@
               Explore Plans
             </button>
           </div>
-
-          <!-- Plan 2 (Duplicate or Another Tier) -->
+          <!-- Web Hosting Plan -->
           <div
-            class="shadow-xl bg-white rounded-xl p-6 text-left hover:shadow-2xl transition duration-500 flex flex-col justify-between"
+            class="shadow-xl bg-white rounded-xl p-9 text-left hover:shadow-2xl transition duration-500 flex flex-col justify-between"
           >
             <div>
-              <h3 class="font-semibold text-xl mb-1">Web Hosting Pro</h3>
-              <p class="text-gray-500 mb-4 text-sm">
-                For agencies & growing teams
-              </p>
-              <p class="text-3xl font-bold mb-4">
-                $5.99<span class="text-base font-medium text-gray-500"
-                  >/mo</span
+              <h3 class="font-semibold">WordPress Hosting</h3>
+
+              <p class="w-full font-bold my-9 text-6xl">
+                $4.99<span class="font-medium text-gray-500 text-sm">
+                  Per month</span
                 >
               </p>
-              <ul class="text-sm space-y-2 mb-6 text-gray-700 list-disc pl-5">
-                <li>Unlimited Storage & Bandwidth</li>
-                <li>Daily Backups</li>
-                <li>Priority Support</li>
-                <li>Staging Environments</li>
+              <p class="text-gray-500 mb-4 text-sm">
+                Optimized for WordPress speed & security
+              </p>
+              <ul class="text-sm space-y-4 py-9 border-t text-gray-700">
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <p>Host 1 WordPress Site</p>
+                </li>
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <p>20 GB SSD Storage</p>
+                </li>
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle"></i>
+                  <p>Automatic WordPress Updates</p>
+                </li>
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle"></i>
+                  <p>Free SSL Certificate</p>
+                </li>
               </ul>
             </div>
             <button
-              class="mt-auto bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition"
+              class="mt-auto border px-5 py-2 rounded-2xl hover:bg-black hover:text-white transition"
             >
               Explore Plans
             </button>
           </div>
-
-          <!-- Plan 3 -->
+          <!-- Web Hosting Plan -->
           <div
-            class="shadow-xl bg-white rounded-xl p-6 text-left hover:shadow-2xl transition duration-500 flex flex-col justify-between"
+            class="shadow-xl bg-white rounded-xl p-9 text-left hover:shadow-2xl transition duration-500 flex flex-col justify-between"
           >
             <div>
-              <h3 class="font-semibold text-xl mb-1">VPS Hosting</h3>
-              <p class="text-gray-500 mb-4 text-sm">
-                More power for large projects
-              </p>
-              <p class="text-3xl font-bold mb-4">
-                $9.99<span class="text-base font-medium text-gray-500"
-                  >/mo</span
+              <h3 class="font-semibold">Reseller Hosting</h3>
+
+              <p class="w-full font-bold my-9 text-6xl">
+                $9.99<span class="font-medium text-gray-500 text-sm">
+                  Per month</span
                 >
               </p>
-              <ul class="text-sm space-y-2 mb-6 text-gray-700 list-disc pl-5">
-                <li>Full Root Access</li>
-                <li>SSD Performance</li>
-                <li>Scalable Resources</li>
-                <li>Free Dedicated IP</li>
+              <p class="text-gray-500 mb-4 text-sm">
+                Build your own hosting business
+              </p>
+              <ul class="text-sm space-y-4 py-9 border-t text-gray-700">
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <p></p>
+                </li>
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <p>50 GB SSD Storage</p>
+                </li>
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle-xmark text-[#FF695452]"></i>
+                  <p>White-label Control Panel</p>
+                </li>
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle-xmark text-[#FF695452]"></i>
+                  <p>Free SSL for All Accounts</p>
+                </li>
               </ul>
             </div>
             <button
-              class="mt-auto bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition"
+              class="mt-auto border px-5 py-2 rounded-2xl hover:bg-black hover:text-white transition"
             >
               Explore Plans
             </button>
           </div>
-
-          <!-- Plan 4 -->
+          <!-- Web Hosting Plan -->
           <div
-            class="shadow-xl bg-white rounded-xl p-6 text-left hover:shadow-2xl transition duration-500 flex flex-col justify-between"
+            class="shadow-xl bg-white rounded-xl p-9 text-left hover:shadow-2xl transition duration-500 flex flex-col justify-between"
           >
             <div>
-              <h3 class="font-semibold text-xl mb-1">Dedicated Server</h3>
-              <p class="text-gray-500 mb-4 text-sm">
-                Ultimate control & performance
-              </p>
-              <p class="text-3xl font-bold mb-4">
-                $29.99<span class="text-base font-medium text-gray-500"
-                  >/mo</span
+              <h3 class="font-semibold">Reseller Hosting</h3>
+
+              <p class="w-full font-bold my-9 text-6xl">
+                $9.99<span class="font-medium text-gray-500 text-sm">
+                  Per month</span
                 >
               </p>
-              <ul class="text-sm space-y-2 mb-6 text-gray-700 list-disc pl-5">
-                <li>Full Hardware Access</li>
-                <li>Custom Configuration</li>
-                <li>24/7 Monitoring</li>
-                <li>Enterprise Security</li>
+              <p class="text-gray-500 mb-4 text-sm">
+                Build your own hosting business
+              </p>
+              <ul class="text-sm space-y-4 py-9 border-t text-gray-700">
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <p></p>
+                </li>
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <p>50 GB SSD Storage</p>
+                </li>
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle-xmark text-[#FF695452]"></i>
+                  <p>White-label Control Panel</p>
+                </li>
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle-xmark text-[#FF695452]"></i>
+                  <p>Free SSL for All Accounts</p>
+                </li>
               </ul>
             </div>
             <button
-              class="mt-auto bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition"
+              class="mt-auto border px-5 py-2 rounded-2xl hover:bg-black hover:text-white transition"
             >
               Explore Plans
             </button>
@@ -364,8 +434,513 @@
       </div>
     </section>
 
-    <script src="script.js">
-      // Add any JS if needed
-    </script>
+    <section id="hosting" class="bg-gray-100 text-black px-4 py-24">
+      <!-- Bullet + Title -->
+      <div class="w-full mx-auto max-w-[1560px] text-center">
+        <div class="flex justify-start mb-2">
+          <span
+            class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg text-lg mb-4"
+            style="box-shadow: inset 0 2px 1.5px rgba(0, 0, 0, 0.3)"
+          >
+            Why Choose Us?
+          </span>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 max-w-2xl text-left">
+          The Hosting Partner You Can Rely On
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-6">
+          <div class="flex bg-white p-6 gap-10 rounded-2xl">
+            <div
+              class="w-20 h-20 flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
+            >
+              01
+            </div>
+            <div class="flex-1 text-start">
+              <h4 class="font-bold">Ultra-Fast Performance ِAny Time</h4>
+              <p class="font-thine text-gray-500">
+                We provide powerful servers and advanced data centers to ensure
+                lightning-fast website loading without interruptions.
+              </p>
+            </div>
+          </div>
+          <div class="flex bg-white p-6 gap-10 rounded-2xl">
+            <div
+              class="w-20 h-20 flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
+            >
+              02
+            </div>
+            <div class="flex-1 text-start">
+              <h4 class="font-bold">Flexible Plans & Affordable Pricing</h4>
+              <p class="font-thine text-gray-500">
+                We provide hosting packages suitable for all types of websites
+                and budgets, with the flexibility to upgrade as your project
+                grows.
+              </p>
+            </div>
+          </div>
+          <div class="flex bg-white p-6 gap-10 rounded-2xl">
+            <div
+              class="w-20 h-20 flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
+            >
+              03
+            </div>
+            <div class="flex-1 text-start">
+              <h4 class="font-bold">User-Friendly Control Panel</h4>
+              <p class="font-thine text-gray-500">
+                An intuitive control panel makes it easy to manage your website,
+                even with no technical experience.
+              </p>
+            </div>
+          </div>
+          <div class="flex bg-white p-6 gap-10 rounded-2xl">
+            <div
+              class="w-20 h-20 flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
+            >
+              04
+            </div>
+            <div class="flex-1 text-start">
+              <h4 class="font-bold">Comprehensive & Advanced Security</h4>
+              <p class="font-thine text-gray-500">
+                We implement advanced security systems including firewalls,
+                automatic updates, and continuous monitoring
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="my-32 w-full mx-auto max-w-[1560px] bg-black text-white p-16 rounded-2xl"
+      >
+        <h2 class="font-bold text-5xl mb-6">
+          Premium Web Hosting For Every Website
+        </h2>
+        <p class="mb-6 text-gray-400">
+          Enjoy lightning-fast, secure, and scalable web hosting tailored for
+          all types of websites — from personal blogs and portfolios to business
+          websites
+        </p>
+        <button class="text-black bg-white py-4 px-10 rounded-xl">
+          See Pricing
+        </button>
+      </div>
+
+      <div class="w-full mx-auto max-w-[1560px] text-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
+          <div class="flex bg-white p-6 gap-10 rounded-2xl">
+            <div
+              class="w-20 h-20 flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
+            >
+              <img
+                src="public/cloud-computing-technology-cloud-data-center-with-hosting-server-cloud-service-3d-rendering-network-database-cloud-storage-3d-render-illustration 1.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex-1 text-start">
+              <h4 class="font-bold text-2xl">The Full Package Included Here</h4>
+              <p class="font-thine text-gray-500">
+                We provide powerful servers and advanced data centers to ensure
+                lightning-fast website loading without interruptions.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center bg-white p-6 gap-6 rounded-2xl row-span-2"
+          >
+            <div class="text-start space-y-8">
+              <h4 class="font-bold text-2xl">
+                Ultra-Fast Performance ِAny Time
+              </h4>
+              <p class="font-thine text-gray-500">
+                We provide powerful VPS servers and advanced data centers to
+                ensure lightning-fast website loading without interruptions.
+              </p>
+              <button class="bg-black text-white py-4 px-10 rounded-xl">
+                Get Started Now
+              </button>
+            </div>
+            <img
+              src="public/modern-productivity-concept-with-flat-design 1.svg"
+              width="266"
+              alt=""
+            />
+          </div>
+
+          <div class="flex bg-white p-6 gap-10 rounded-2xl">
+            <div
+              class="w-20 h-20 flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
+            >
+              <img src="public/fan-3d-render-icon-illustration 1.svg" alt="" />
+            </div>
+            <div class="flex-1 text-start">
+              <h4 class="font-bold text-2xl">Unlimited Bandwidth</h4>
+              <p class="font-thine text-gray-500">
+                An intuitive control panel makes it easy to manage your website,
+                even with no technical experience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-100 text-black px-4 py-24">
+      <!-- Bullet + Title -->
+      <div class="w-full mx-auto max-w-[1560px] text-center">
+        <div class="flex justify-start mb-2">
+          <span
+            class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg text-lg mb-4"
+            style="box-shadow: inset 0 2px 1.5px rgba(0, 0, 0, 0.3)"
+          >
+            Academy
+          </span>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 max-w-2xl text-left">
+          Tips, Insights, and Updates for Your Online Success
+        </h2>
+
+        <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Card -->
+          <div class="bg-white rounded-3xl shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-300">
+              <img
+                src="public/Dataprotection.png"
+                class="w-full h-full object-cover"
+                alt=""
+              />
+            </div>
+            <div class="p-6 text-left">
+              <div class="flex w-full justify-between items-center">
+                <p class="text-black text-xl font-bold">
+                  Data Protection this year
+                </p>
+                <p class="text-lg text-gray-500 font-medium">26 Mar, 2025</p>
+              </div>
+              <p class="text-base text-gray-700 mt-4">
+                Stronger focus on privacy, AI-based security, GDPR compliance,
+                and secure cloud solutions shaped data
+              </p>
+              <button class="bg-black p-4 text-white rounded-xl w-full mt-8">
+                Continue Reading
+              </button>
+            </div>
+          </div>
+          <div class="bg-white rounded-3xl shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-300">
+              <img
+                src="public/Dataprotection.png"
+                class="w-full h-full object-cover"
+                alt=""
+              />
+            </div>
+            <div class="p-6 text-left">
+              <div class="flex w-full justify-between items-center">
+                <p class="text-black text-xl font-bold">
+                  Data Protection this year
+                </p>
+                <p class="text-lg text-gray-500 font-medium">26 Mar, 2025</p>
+              </div>
+              <p class="text-base text-gray-700 mt-4">
+                Stronger focus on privacy, AI-based security, GDPR compliance,
+                and secure cloud solutions shaped data
+              </p>
+              <button class="bg-black p-4 text-white rounded-xl w-full mt-8">
+                Continue Reading
+              </button>
+            </div>
+          </div>
+          <div class="bg-white rounded-3xl shadow-md overflow-hidden">
+            <div class="h-48 bg-gray-300">
+              <img
+                src="public/Dataprotection.png"
+                class="w-full h-full object-cover"
+                alt=""
+              />
+            </div>
+            <div class="p-6 text-left">
+              <div class="flex w-full justify-between items-center">
+                <p class="text-black text-xl font-bold">
+                  Data Protection this year
+                </p>
+                <p class="text-lg text-gray-500 font-medium">26 Mar, 2025</p>
+              </div>
+              <p class="text-base text-gray-700 mt-4">
+                Stronger focus on privacy, AI-based security, GDPR compliance,
+                and secure cloud solutions shaped data
+              </p>
+              <button class="bg-black p-4 text-white rounded-xl w-full mt-8">
+                Continue Reading
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-200 text-black px-4 py-24">
+      <!-- Bullet + Title -->
+      <div class="w-full mx-auto max-w-[1560px] text-center">
+        <div class="flex justify-start mb-2">
+          <span
+            class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg text-lg mb-4"
+            style="box-shadow: inset 0 2px 1.5px rgba(0, 0, 0, 0.3)"
+          >
+            Frequently Asked Questions (FAQs)
+          </span>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 max-w-2xl text-left">
+          Got Questions? We’ve Got Answers.
+        </h2>
+        <div class="space-y-6">
+          <div class="shadow-md bg-white rounded-3xl p-16 text-start">
+            <div class="flex gap-8 items-center">
+              <span
+                class="w-9 h-9 flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
+                ><i class="fa-solid fa-angle-up"></i
+              ></span>
+              <h3 class="text-3xl font-semibold">
+                What is web hosting and why do I need it ?
+              </h3>
+            </div>
+
+            <p class="mt-8 text-gray-600 text-xl">
+              Safety is our top priority. We ensure qualified instructors
+              oversee all activities, maintain small group sizes for
+              personalized attention hosting plans for sanitation.
+            </p>
+          </div>
+          <div class="shadow-md bg-white rounded-3xl p-16 text-start">
+            <div class="flex gap-8 items-center">
+              <span
+                class="w-9 h-9 flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
+                ><i class="fa-solid fa-angle-down"></i
+              ></span>
+              <h3 class="text-3xl font-semibold">
+                Which hosting plan is right for me ?
+              </h3>
+            </div>
+
+            <!-- <p class="mt-8 text-gray-600 text-xl">
+              If you’re starting a personal site or small business, our Web
+              Hosting or WordPress Hosting is perfect. For agencies or resellers,
+              choose Reseller Hosting. Need more power? Go with VPS Hosting.
+            </p> -->
+          </div>
+          <div class="shadow-md bg-white rounded-3xl p-16 text-start">
+            <div class="flex gap-8 items-center">
+              <span
+                class="w-9 h-9 flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
+                ><i class="fa-solid fa-angle-down"></i
+              ></span>
+              <h3 class="text-3xl font-semibold">
+                Can I upgrade my plan later ?
+              </h3>
+            </div>
+            <!-- <p class="mt-8 text-gray-600 text-xl">
+              Absolutely! You can upgrade or change your plan anytime as your
+              needs grow—no hassle, no downtime.
+            </p> -->
+          </div>
+          <div class="shadow-md bg-white rounded-3xl p-16 text-start">
+            <div class="flex gap-8 items-center">
+              <span
+                class="w-9 h-9 flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
+                ><i class="fa-solid fa-angle-down"></i
+              ></span>
+              <h3 class="text-3xl font-semibold">
+                Do you offer a money-back guarantee ?
+              </h3>
+            </div>
+            <!-- <p class="mt-8 text-gray-600 text-xl">
+              Yes! We offer a 30-day money-back guarantee on all hosting plans.
+              Try us risk-free.
+            </p> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-white text-black px-4 py-24">
+      <!-- Bullet + Title -->
+      <div class="w-full mx-auto max-w-[1560px] text-center">
+        <div class="flex justify-between mb-2">
+          <span
+            class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg text-lg mb-4"
+            style="box-shadow: inset 0 2px 1.5px rgba(0, 0, 0, 0.3)"
+          >
+            Faqs
+          </span>
+
+          <div class="flex gap-4">
+            <button class="w-16 h-16 rounded-2xl bg-gray-200">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button class="w-16 h-16 rounded-2xl bg-black text-white">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 max-w-2xl text-left">
+          Real Stories. Real Success.
+        </h2>
+
+        <div class="flex flex-col gap-6">
+          <div class="flex gap-6">
+            <!-- card -->
+            <div
+              class="text-start w-[550px] h-[200px] py-6 px-6 rounded-2xl drop-shadow-[0_4px_6px_rgba(107,114,128,0.3)] relative bg-white pt-12 clip-top-half-circle"
+            >
+              <div
+                class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full overflow-hidden border border-gray-300"
+              >
+                <img
+                  src="public/5249064b15e9c12802063c7e962d12dac4025259.jpg"
+                  class="w-full h-full object-cover"
+                  alt=""
+                />
+              </div>
+              <p class="text-gray-600 pb-6">
+                Switching to this host was the best decision for my online
+                store. The free migration was smooth and I feel so much more
+                secure
+              </p>
+              <h4 class="font-semibold text-lg pb-2">Seif Hossam</h4>
+              <div class="flex justify-between">
+                <p class="text-gray-600">user</p>
+                <p>5.0 <i class="fa fa-solid fa-star"></i></p>
+              </div>
+            </div>
+            <!-- card -->
+            <div
+              class="text-start w-[550px] h-[200px] py-6 px-6 rounded-2xl drop-shadow-[0_4px_6px_rgba(107,114,128,0.3)] relative bg-white pt-12 clip-top-half-circle"
+            >
+              <div
+                class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full overflow-hidden border border-gray-300"
+              >
+                <img
+                  src="public/5249064b15e9c12802063c7e962d12dac4025259.jpg"
+                  class="w-full h-full object-cover"
+                  alt=""
+                />
+              </div>
+              <p class="text-gray-600 pb-6">
+                Switching to this host was the best decision for my online
+                store. The free migration was smooth and I feel so much more
+                secure
+              </p>
+              <h4 class="font-semibold text-lg pb-2">Seif Hossam</h4>
+              <div class="flex justify-between">
+                <p class="text-gray-600">user</p>
+                <p>5.0 <i class="fa fa-solid fa-star"></i></p>
+              </div>
+            </div>
+            <!-- card -->
+            <div
+              class="text-start w-[550px] h-[200px] py-6 px-6 rounded-2xl drop-shadow-[0_4px_6px_rgba(107,114,128,0.3)] relative bg-white pt-12 clip-top-half-circle"
+            >
+              <div
+                class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full overflow-hidden border border-gray-300"
+              >
+                <img
+                  src="public/5249064b15e9c12802063c7e962d12dac4025259.jpg"
+                  class="w-full h-full object-cover"
+                  alt=""
+                />
+              </div>
+              <p class="text-gray-600 pb-6">
+                Switching to this host was the best decision for my online
+                store. The free migration was smooth and I feel so much more
+                secure
+              </p>
+              <h4 class="font-semibold text-lg pb-2">Seif Hossam</h4>
+              <div class="flex justify-between">
+                <p class="text-gray-600">user</p>
+                <p>5.0 <i class="fa fa-solid fa-star"></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center justify-center space-x-1">
+            <span class="block w-8 h-2 rounded-full bg-gray-400"></span>
+            <span class="block w-8 h-2 rounded-full bg-black"></span>
+            <span class="block w-8 h-2 rounded-full bg-gray-400"></span>
+            <span class="block w-8 h-2 rounded-full bg-gray-400"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-black text-white px-6 py-12">
+      <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
+        <!-- Logo + Text Section -->
+        <div class="md:col-span-1 space-y-4">
+          <div class="flex gap-2 items-center">
+            <img src="/public/hostina.svg" alt="" />
+            <h2 class="text-2xl font-bold">Hostina</h2>
+          </div>
+          <p class="text-sm text-gray-300">
+            Empowering your online presence with reliable hosting, expert
+            support, and honest pricing. Join thousands who trust us to keep
+            their websites secure, fast, and always online.
+          </p>
+        </div>
+
+        <!-- Domains -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Domains</h3>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><a href="#" class="hover:text-white">Register Domain</a></li>
+            <li><a href="#" class="hover:text-white">Transfer Domain</a></li>
+            <li><a href="#" class="hover:text-white">Domain Search</a></li>
+          </ul>
+        </div>
+
+        <!-- Servers -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Servers</h3>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li>
+              <a href="#" class="hover:text-white">Virtual Private Servers</a>
+            </li>
+            <li><a href="#" class="hover:text-white">Dedicated Servers</a></li>
+            <li><a href="#" class="hover:text-white">Game Servers</a></li>
+          </ul>
+        </div>
+
+        <!-- Hosting -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Hosting</h3>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><a href="#" class="hover:text-white">Shared Hosting</a></li>
+            <li><a href="#" class="hover:text-white">WordPress Hosting</a></li>
+            <li><a href="#" class="hover:text-white">Reseller Hosting</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Us -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Contact Us</h3>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li>
+              <a href="mailto:contact@company.com" class="hover:text-white"
+                >contact@company.com</a
+              >
+            </li>
+            <li>
+              <a href="tel:+14146875892" class="hover:text-white"
+                >(414) 687 - 5892</a
+              >
+            </li>
+            <li class="text-gray-300">794 Mcallister</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
