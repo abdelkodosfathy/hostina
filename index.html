@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ultrafast Hosting</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-black text-white">
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-md">
+      <div
+        class="w-full mx-auto px-4 py-4 flex items-center justify-between"
+      >
+        <!-- Logo -->
+        <div class="text-2xl font-bold text-white flex items-center gap-3">
+          <img src="/public/hostina.svg" alt="" />
+          <p>Hostina</p>
+        </div>
+
+        <!-- Menu -->
+        <nav class="hidden md:flex space-x-6 text-white">
+          <a href="#" class="hover:text-gray-300">Domains</a>
+          <a href="#" class="hover:text-gray-300">Hosting</a>
+          <a href="#" class="hover:text-gray-300">Services</a>
+          <a href="#" class="hover:text-gray-300">Contact Us</a>
+          <a href="#" class="hover:text-gray-300">Help</a>
+        </nav>
+
+        <!-- Dropdowns -->
+        <div class="flex items-center gap-4">
+          <!-- Currency Dropdown -->
+          <select
+            class="bg-transparent border border-white text-white px-2 py-1 rounded"
+          >
+            <option class="text-black">USD</option>
+            <option class="text-black">EUR</option>
+            <option class="text-black">EGP</option>
+          </select>
+
+          <!-- Account Dropdown -->
+          <select
+            class="bg-transparent border border-white text-white px-2 py-1 rounded"
+          >
+            <option class="text-black">My Account</option>
+            <option class="text-black">Login</option>
+            <option class="text-black">Register</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="hero-section min-h-screen flex flex-col items-center justify-center text-center px-4 pt-24"
+    >
+      <div
+        class="absolute w-48 h-48 rounded-full top-50 -translate-y-20"
+        style="box-shadow: 0 0 20px 0px rgba(255, 255, 255, 0.5)"
+      ></div>
+
+      <h1 class="text-4xl md:text-5xl font-bold leading-snug">
+        Super & Best Ultrafast Hosting <br />Solutions
+      </h1>
+      <p class="text-gray-300 mt-4 max-w-2xl">
+        Blazing-fast and high-performance hosting that combines power and
+        reliability to give your website the best possible experience
+      </p>
+
+      <!-- Search Box -->
+      <div class="mt-8 w-full max-w-4xl flex gap-6">
+        <div class="relative w-full h-full">
+          <span class="absolute right-4 top-1/2 -translate-y-1/2">
+            <img src="public/keyboard.svg" alt="" />
+          </span>
+          <input
+            type="text"
+            placeholder="Enter your domain name here"
+            class="rounded-xl h-full w-full bg-transparent border border-white placeholder-white text-white px-4 py-2"
+          />
+        </div>
+
+        <button
+          class="rounded-xl bg-white text-black px-10 whitespace-nowrap py-6 hover:bg-gray-200"
+        >
+          Search Domain
+        </button>
+      </div>
+    </section>
+
+    <section class="bg-gray-50 text-black px-4 py-24">
+      <!-- Bullet + Title -->
+      <div class="w-full mx-auto max-w-[1600px] text-center">
+        <div class="flex justify-start mb-2">
+          <span
+            class="bg-gray-100 text-black font-semibold px-4 py-3 rounded-lg text-lg"
+            style="box-shadow: inset 0 2px 1.5px rgba(0, 0, 0, 0.3)"
+          >
+            Our Features
+          </span>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 max-w-2xl text-left">
+          Everything You Need to Succeed Online
+        </h2>
+
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Card 1 -->
+          <div
+            class="shadow-xl bg-white rounded-xl p-6 text-left hover:shadow-2xl transition duration-500"
+          >
+            <div
+              class="w-22 h-22 rounded-xl bg-gray-300/20 mb-4 flex items-center justify-center"
+              style="width: 88px; height: 88px"
+            >
+              <!-- Placeholder Icon -->
+            </div>
+            <h3 class="font-semibold text-lg mb-2">
+              Lightning-Fast Performance
+            </h3>
+            <p class="text-gray-300 text-sm">
+              Our ultra-modern servers and premium infrastructure ensure your
+              site loads instantly—delighting your visitors and boosting your
+              search engine ranking.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="shadow-xl rounded-xl p-6 text-left bg-black text-white hover:shadow-2xl transition duration-500"
+          >
+            <div
+              class="w-22 h-22 w-fit rounded-xl p-[2px] mb-4 bg-gradient-to-b from-[#fff] to-[#666]"
+            >
+              <div
+                class="w-full h-full rounded-xl bg-black/90 flex items-center justify-center"
+                style="width: 88px; height: 88px"
+              ></div>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">24/7 Expert Support</h3>
+            <p class="text-gray-300 text-sm">
+              Our friendly, experienced support team is here for you—day or
+              night. Get real answers, fast, whenever you need help.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="shadow-xl bg-white rounded-xl p-6 text-left hover:shadow-2xl transition duration-500"
+          >
+            <div
+              class="w-22 h-22 rounded-xl bg-gray-300/20 mb-4 flex items-center justify-center"
+              style="width: 88px; height: 88px"
+            >
+              <img src="public/uptime.svg" alt="" />
+            </div>
+            <h3 class="font-semibold text-lg mb-2">99.9% Uptime Guarantee</h3>
+            <p class="text-gray-300 text-sm">
+              Reliability matters. Our robust network and proactive monitoring
+              deliver rock-solid uptime so your business is always open to the
+              world.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="shadow-xl bg-white rounded-xl p-6 text-left hover:shadow-2xl transition duration-500"
+          >
+            <div
+              class="w-22 h-22 rounded-xl bg-gray-300/20 mb-4 flex items-center justify-center"
+              style="width: 88px; height: 88px"
+            >
+              <img src="public/advanced security.svg" alt="" />
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Advanced Security</h3>
+            <p class="text-gray-300 text-sm">
+              We protect your site with firewalls, malware scanning, and DDoS
+              mitigation, so you can focus on your business—not on threats.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-gray-100 text-black px-4 py-24">
+      <!-- Bullet + Title -->
+      <div class="w-full mx-auto max-w-[1560px] text-center">
+        <div class="flex justify-start mb-2">
+          <span
+            class="bg-gray-100 text-black font-semibold px-4 py-3 rounded-lg text-lg"
+            style="box-shadow: inset 0 2px 1.5px rgba(0, 0, 0, 0.3)"
+          >
+            Our Pricing
+          </span>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 max-w-2xl text-left">
+          Choose the plan that fits your needs and enjoy top-tier hosting
+        </h2>
+
+        <div
+          class="flex bg-white rounded-3xl overflow-hidden w-72 mx-auto mb-12 text-lg font-thine"
+        >
+          <span
+            class="w-1/2 text-center rounded-3xl bg-black text-white p-4 cursor-pointer"
+          >
+            Monthly
+          </span>
+
+          <span
+            class="w-1/2 text-center text-black p-4 cursor-pointer hover:bg-gray-100"
+          >
+            Annually
+          </span>
+        </div>
+
+        <!-- Pricing Cards Grid -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-black"
+        >
+          <!-- Web Hosting Plan -->
+          <div
+            class="shadow-xl bg-white rounded-xl p-9 text-left hover:shadow-2xl transition duration-500 flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="font-semibold">Web Hosting</h3>
+
+              <p class="w-full font-bold my-9 text-6xl">
+                $2.99<span class="font-medium text-gray-500 text-sm">
+                  Per month</span
+                >
+              </p>
+              <p class="text-gray-500 mb-4 text-sm">
+                Ideal for personal sites , small businesses
+              </p>
+              <ul class="text-sm space-y-4 py-9 border-t text-gray-700">
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <p>Host Unlimited Accounts</p>
+                </li>
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <p>50 GB SSD Storage</p>
+                </li>
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle-xmark text-[#FF695452]"></i>
+                  <p>White-label Control Panel</p>
+                </li>
+                <li class="flex gap-3 items-center">
+                  <i class="fa-solid fa-circle-xmark text-[#FF695452]"></i>
+                  <p>Free SSL for All Accounts</p>
+                </li>
+              </ul>
+            </div>
+            <button
+              class="mt-auto border px-5 py-2 rounded-2xl hover:bg-black hover:text-white transition"
+            >
+              Explore Plans
+            </button>
+          </div>
+
+          <!-- Plan 2 (Duplicate or Another Tier) -->
+          <div
+            class="shadow-xl bg-white rounded-xl p-6 text-left hover:shadow-2xl transition duration-500 flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="font-semibold text-xl mb-1">Web Hosting Pro</h3>
+              <p class="text-gray-500 mb-4 text-sm">
+                For agencies & growing teams
+              </p>
+              <p class="text-3xl font-bold mb-4">
+                $5.99<span class="text-base font-medium text-gray-500"
+                  >/mo</span
+                >
+              </p>
+              <ul class="text-sm space-y-2 mb-6 text-gray-700 list-disc pl-5">
+                <li>Unlimited Storage & Bandwidth</li>
+                <li>Daily Backups</li>
+                <li>Priority Support</li>
+                <li>Staging Environments</li>
+              </ul>
+            </div>
+            <button
+              class="mt-auto bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition"
+            >
+              Explore Plans
+            </button>
+          </div>
+
+          <!-- Plan 3 -->
+          <div
+            class="shadow-xl bg-white rounded-xl p-6 text-left hover:shadow-2xl transition duration-500 flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="font-semibold text-xl mb-1">VPS Hosting</h3>
+              <p class="text-gray-500 mb-4 text-sm">
+                More power for large projects
+              </p>
+              <p class="text-3xl font-bold mb-4">
+                $9.99<span class="text-base font-medium text-gray-500"
+                  >/mo</span
+                >
+              </p>
+              <ul class="text-sm space-y-2 mb-6 text-gray-700 list-disc pl-5">
+                <li>Full Root Access</li>
+                <li>SSD Performance</li>
+                <li>Scalable Resources</li>
+                <li>Free Dedicated IP</li>
+              </ul>
+            </div>
+            <button
+              class="mt-auto bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition"
+            >
+              Explore Plans
+            </button>
+          </div>
+
+          <!-- Plan 4 -->
+          <div
+            class="shadow-xl bg-white rounded-xl p-6 text-left hover:shadow-2xl transition duration-500 flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="font-semibold text-xl mb-1">Dedicated Server</h3>
+              <p class="text-gray-500 mb-4 text-sm">
+                Ultimate control & performance
+              </p>
+              <p class="text-3xl font-bold mb-4">
+                $29.99<span class="text-base font-medium text-gray-500"
+                  >/mo</span
+                >
+              </p>
+              <ul class="text-sm space-y-2 mb-6 text-gray-700 list-disc pl-5">
+                <li>Full Hardware Access</li>
+                <li>Custom Configuration</li>
+                <li>24/7 Monitoring</li>
+                <li>Enterprise Security</li>
+              </ul>
+            </div>
+            <button
+              class="mt-auto bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition"
+            >
+              Explore Plans
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js">
+      // Add any JS if needed
+    </script>
+  </body>
+</html>
