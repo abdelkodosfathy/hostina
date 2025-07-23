@@ -31,68 +31,115 @@
   </head>
   <body class="bg-black text-white">
     <!-- Navbar -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-md">
+    <header class="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-md">
       <div class="w-full mx-auto px-4 py-4 flex items-center justify-between">
         <!-- Logo -->
         <div class="text-2xl font-bold text-white flex items-center gap-3">
-          <img src="/public/hostina.svg" alt="" />
+          <img
+            src="/public/hostina.svg"
+            alt=""
+            class="w-8 h-8 object-contain"
+          />
           <p>Hostina</p>
         </div>
 
+        <!-- Hamburger for Mobile -->
+        <button id="mobile-menu-btn" class="md:hidden text-white text-3xl">
+          <i class="fa fa-bars"></i>
+        </button>
+
         <!-- Menu -->
-        <nav class="hidden md:flex space-x-6 text-white text-2xl">
-          <a href="#" class="hover:text-gray-300">
-            Domains
-            <i class="fa fa-angle-down"></i>
-          </a>
-
-          <a href="#" class="hover:text-gray-300">
-            Hosting
-            <i class="fa fa-angle-down"></i>
-          </a>
-
-          <a href="#" class="hover:text-gray-300">
-            Services
-            <i class="fa fa-angle-down"></i>
-          </a>
-
-          <a href="#" class="hover:text-gray-300">
-            Contact Us
-            <i class="fa fa-angle-down"></i>
-          </a>
-
-          <a href="#" class="hover:text-gray-300">
-            Help
-            <i class="fa fa-angle-down"></i>
-          </a>
+        <nav
+          id="main-menu"
+          class="hidden md:flex space-x-6 text-white text-lg items-center"
+        >
+          <a href="#" class="hover:text-gray-300"
+            >Domains <i class="fa fa-angle-down"></i
+          ></a>
+          <a href="#" class="hover:text-gray-300"
+            >Hosting <i class="fa fa-angle-down"></i
+          ></a>
+          <a href="#" class="hover:text-gray-300"
+            >Services <i class="fa fa-angle-down"></i
+          ></a>
+          <a href="#" class="hover:text-gray-300"
+            >Contact Us <i class="fa fa-angle-down"></i
+          ></a>
+          <a href="#" class="hover:text-gray-300"
+            >Help <i class="fa fa-angle-down"></i
+          ></a>
         </nav>
 
         <!-- Dropdowns -->
-        <div class="flex items-center gap-4">
+        <div class="hidden md:flex items-center gap-4">
           <!-- Currency Dropdown -->
-          <div class="flex border border-white rounded-lg px-2">
-            <div
-              class="w-10 h-10 flex justify-center items-center"
-            >
-              <i class="fa fa-solid fa-dollar"></i>
+          <div
+            class="flex border border-white rounded-lg p-2 items-center gap-2"
+          >
+            <div class="w-8 h-8 rounded-full overflow-hidden">
+              <img
+                id="currency-icon"
+                src="public/flags/USD.png"
+                class="w-full h-full object-cover"
+              />
             </div>
             <select
-              class="bg-transparent px-2 py-1 rounded"
+              id="currency-select"
+              class="bg-transparent text-white text-sm"
             >
-              <option class="text-black">USD</option>
-              <option class="text-black">EUR</option>
-              <option class="text-black">EGP</option>
+              <option value="usd" selected>USD</option>
+              <option value="eur">EUR</option>
+              <option value="egp">EGP</option>
             </select>
           </div>
 
           <!-- Account Dropdown -->
-          <div class="flex">
-            <div
-              class="border border-white rounded-lg w-10 h-10 flex justify-center items-center"
-            >
-              <i class="fa fa-solid fa-user"></i>
+          <div
+            class="flex items-center border border-white rounded-lg px-2 py-1 gap-2"
+          >
+            <i class="fa fa-solid fa-user text-white text-xl"></i>
+            <select class="bg-transparent text-white text-sm">
+              <option selected>Account</option>
+              <option>Login</option>
+              <option>Register</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden text-white px-6 py-4 space-y-4 text-lg"
+      >
+        <a href="#" class="block">Domains</a>
+        <a href="#" class="block">Hosting</a>
+        <a href="#" class="block">Services</a>
+        <a href="#" class="block">Contact Us</a>
+        <a href="#" class="block">Help</a>
+
+        <!-- Currency & Account in mobile -->
+        <div class="mt-4 space-y-4">
+          <!-- Currency -->
+          <div class="flex items-center text-white gap-2">
+            <div class="w-8 h-8 rounded-full overflow-hidden">
+              <img
+                id="mobile-currency-icon"
+                src="public/flags/USD.png"
+                class="w-full h-full object-cover"
+              />
             </div>
-            <select class="bg-transparent text-white px-2 py-1 rounded">
+            <select id="mobile-currency-select" class="bg-transparent text-sm">
+              <option class="text-black" value="usd" selected>USD</option>
+              <option class="text-black" value="eur">EUR</option>
+              <option class="text-black" value="egp">EGP</option>
+            </select>
+          </div>
+
+          <!-- Account -->
+          <div class="flex items-center text-white gap-2">
+            <i class="fa fa-solid fa-user text-xl"></i>
+            <select class="bg-transparent text-sm">
               <option class="text-black" selected>Account</option>
               <option class="text-black">Login</option>
               <option class="text-black">Register</option>
@@ -103,37 +150,46 @@
     </header>
 
     <!-- Hero Section -->
+    <!-- Hero Section -->
     <section
-      class="hero-section min-h-screen flex flex-col items-center justify-center text-center px-4 pt-24"
+      class="overflow-hidden hero-section min-h-screen flex flex-col items-center justify-center text-center px-4 pt-24 relative"
     >
       <div
-        class="absolute w-48 h-48 rounded-full top-50 -translate-y-20"
+        class="z-10 bg-black absolute w-32 h-32 md:w-48 md:h-48 rounded-full top-1/2 md:top-72"
         style="box-shadow: 0 0 20px 0px rgba(255, 255, 255, 0.5)"
       ></div>
 
-      <h1 class="text-4xl md:text-5xl font-bold leading-snug">
-        Super & Best Ultrafast Hosting <br />Solutions
+      <h1
+        class="relative z-20 text-2xl sm:text-3xl md:text-5xl font-bold leading-snug"
+      >
+        Super & Best Ultrafast Hosting <br class="hidden sm:block" />
+        Solutions
       </h1>
-      <p class="text-gray-300 mt-4 max-w-2xl">
+
+      <p
+        class="relative z-20 text-gray-300 mt-4 max-w-xl sm:max-w-2xl text-sm sm:text-base"
+      >
         Blazing-fast and high-performance hosting that combines power and
         reliability to give your website the best possible experience
       </p>
 
       <!-- Search Box -->
-      <div class="mt-8 w-full max-w-4xl flex gap-6">
-        <div class="relative w-full h-full">
+      <div
+        class="mt-8 w-full max-w-4xl flex flex-col sm:flex-row gap-4 sm:gap-6 items-stretch"
+      >
+        <div class="relative w-full">
           <span class="absolute right-4 top-1/2 -translate-y-1/2">
-            <img src="public/keyboard.svg" alt="" />
+            <img src="public/keyboard.svg" alt="" class="w-5 h-5" />
           </span>
           <input
             type="text"
             placeholder="Enter your domain name here"
-            class="rounded-xl h-full w-full bg-transparent border border-white placeholder-white text-white px-4 py-2"
+            class="z-10 relative rounded-xl w-full bg-transparent border border-white placeholder-white text-white px-4 py-3 sm:py-4"
           />
         </div>
 
         <button
-          class="rounded-xl bg-white text-black px-10 whitespace-nowrap py-6 hover:bg-gray-200"
+          class="z-10 relative rounded-xl bg-white text-black whitespace-nowrap px-6 sm:px-10 py-3 sm:py-4 hover:bg-gray-200"
         >
           Search Domain
         </button>
@@ -234,6 +290,7 @@
         </div>
       </div>
     </section>
+
     <section class="bg-gray-100 text-black px-4 py-24">
       <!-- Bullet + Title -->
       <div class="w-full mx-auto max-w-[1560px] text-center">
@@ -268,6 +325,7 @@
 
         <!-- Pricing Cards Grid -->
         <div
+          id="pricing"
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-black"
         >
           <!-- Web Hosting Plan -->
@@ -335,11 +393,11 @@
                   <p>20 GB SSD Storage</p>
                 </li>
                 <li class="flex gap-3 items-center">
-                  <i class="fa-solid fa-circle"></i>
+                  <i class="fa-solid fa-circle-check"></i>
                   <p>Automatic WordPress Updates</p>
                 </li>
                 <li class="flex gap-3 items-center">
-                  <i class="fa-solid fa-circle"></i>
+                  <i class="fa-solid fa-circle-check"></i>
                   <p>Free SSL Certificate</p>
                 </li>
               </ul>
@@ -548,9 +606,9 @@
           </div>
 
           <div
-            class="flex items-center bg-white p-6 gap-6 rounded-2xl row-span-2"
+            class="flex flex-col items-center bg-white p-6 gap-6 rounded-2xl row-span-2 md:flex-row"
           >
-            <div class="text-start space-y-8">
+            <div class="text-center md:text-start space-y-8">
               <h4 class="font-bold text-2xl">
                 Ultra-Fast Performance ِAny Time
               </h4>
@@ -686,88 +744,126 @@
       <div class="w-full mx-auto max-w-[1560px] text-center">
         <div class="flex justify-start mb-2">
           <span
-            class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg text-lg mb-4"
+            class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg text-base sm:text-lg mb-4"
             style="box-shadow: inset 0 2px 1.5px rgba(0, 0, 0, 0.3)"
           >
             Frequently Asked Questions (FAQs)
           </span>
         </div>
 
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 max-w-2xl text-left">
+        <h2
+          class="text-xl sm:text-2xl md:text-4xl font-bold mb-6 sm:mb-10 md:mb-12 max-w-2xl text-left"
+        >
           Got Questions? We’ve Got Answers.
         </h2>
-        <div class="space-y-6">
-          <div class="shadow-md bg-white rounded-3xl p-16 text-start">
-            <div class="flex gap-8 items-center">
+
+        <div class="space-y-4 sm:space-y-6">
+          <!-- FAQ Card -->
+          <div
+            data-show-answer="true"
+            class="faq-container shadow-md bg-white rounded-3xl p-6 sm:p-10 md:p-16 text-start"
+          >
+            <div class="flex gap-4 sm:gap-6 md:gap-8 items-center">
               <span
-                class="w-9 h-9 flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
-                ><i class="fa-solid fa-angle-up"></i
-              ></span>
-              <h3 class="text-3xl font-semibold">
+                class="faq-btn w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 cursor-pointer flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
+              >
+                <i class="fa-solid fa-angle-up"></i>
+              </span>
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold">
                 What is web hosting and why do I need it ?
               </h3>
             </div>
 
-            <p class="mt-8 text-gray-600 text-xl">
+            <p
+              class="mt-6 sm:mt-8 text-gray-600 text-base sm:text-lg md:text-xl"
+            >
               Safety is our top priority. We ensure qualified instructors
               oversee all activities, maintain small group sizes for
               personalized attention hosting plans for sanitation.
             </p>
           </div>
-          <div class="shadow-md bg-white rounded-3xl p-16 text-start">
-            <div class="flex gap-8 items-center">
+
+          <!-- FAQ Card 2 -->
+          <div
+            data-show-answer="false"
+            class="faq-container shadow-md bg-white rounded-3xl p-6 sm:p-10 md:p-16 text-start"
+          >
+            <div class="flex gap-4 sm:gap-6 md:gap-8 items-center">
               <span
-                class="w-9 h-9 flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
-                ><i class="fa-solid fa-angle-down"></i
-              ></span>
-              <h3 class="text-3xl font-semibold">
+                class="faq-btn w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 cursor-pointer flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
+              >
+                <i class="fa-solid fa-angle-down"></i>
+              </span>
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold">
                 Which hosting plan is right for me ?
               </h3>
             </div>
 
-            <!-- <p class="mt-8 text-gray-600 text-xl">
+            <p
+              class="hidden mt-6 sm:mt-8 text-gray-600 text-base sm:text-lg md:text-xl"
+            >
               If you’re starting a personal site or small business, our Web
-              Hosting or WordPress Hosting is perfect. For agencies or resellers,
-              choose Reseller Hosting. Need more power? Go with VPS Hosting.
-            </p> -->
+              Hosting or WordPress Hosting is perfect. For agencies or
+              resellers, choose Reseller Hosting. Need more power? Go with VPS
+              Hosting.
+            </p>
           </div>
-          <div class="shadow-md bg-white rounded-3xl p-16 text-start">
-            <div class="flex gap-8 items-center">
+
+          <!-- FAQ Card 3 -->
+          <div
+            data-show-answer="false"
+            class="faq-container shadow-md bg-white rounded-3xl p-6 sm:p-10 md:p-16 text-start"
+          >
+            <div class="flex gap-4 sm:gap-6 md:gap-8 items-center">
               <span
-                class="w-9 h-9 flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
-                ><i class="fa-solid fa-angle-down"></i
-              ></span>
-              <h3 class="text-3xl font-semibold">
+                class="faq-btn w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 cursor-pointer flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
+              >
+                <i class="fa-solid fa-angle-down"></i>
+              </span>
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold">
                 Can I upgrade my plan later ?
               </h3>
             </div>
-            <!-- <p class="mt-8 text-gray-600 text-xl">
+
+            <p
+              class="hidden mt-6 sm:mt-8 text-gray-600 text-base sm:text-lg md:text-xl"
+            >
               Absolutely! You can upgrade or change your plan anytime as your
               needs grow—no hassle, no downtime.
-            </p> -->
+            </p>
           </div>
-          <div class="shadow-md bg-white rounded-3xl p-16 text-start">
-            <div class="flex gap-8 items-center">
+
+          <!-- FAQ Card 4 -->
+          <div
+            data-show-answer="false"
+            class="faq-container shadow-md bg-white rounded-3xl p-6 sm:p-10 md:p-16 text-start"
+          >
+            <div class="flex gap-4 sm:gap-6 md:gap-8 items-center">
               <span
-                class="w-9 h-9 flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
-                ><i class="fa-solid fa-angle-down"></i
-              ></span>
-              <h3 class="text-3xl font-semibold">
+                class="faq-btn w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 cursor-pointer flex items-center justify-center bg-gray-200 border border-gray-300 rounded-full"
+              >
+                <i class="fa-solid fa-angle-down"></i>
+              </span>
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold">
                 Do you offer a money-back guarantee ?
               </h3>
             </div>
-            <!-- <p class="mt-8 text-gray-600 text-xl">
+
+            <p
+              class="hidden mt-6 sm:mt-8 text-gray-600 text-base sm:text-lg md:text-xl"
+            >
               Yes! We offer a 30-day money-back guarantee on all hosting plans.
               Try us risk-free.
-            </p> -->
+            </p>
           </div>
         </div>
       </div>
     </section>
-    <section class="bg-white text-black px-4 py-24">
+
+    <section class="faq-container  bg-white text-black py-24">
       <!-- Bullet + Title -->
       <div class="w-full mx-auto max-w-[1560px] text-center">
-        <div class="flex justify-between mb-2">
+        <div class="flex justify-between mb-2 px-6">
           <span
             class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg text-lg mb-4"
             style="box-shadow: inset 0 2px 1.5px rgba(0, 0, 0, 0.3)"
@@ -776,171 +872,273 @@
           </span>
 
           <div class="flex gap-4">
-            <button class="w-16 h-16 rounded-2xl bg-gray-200">
+            <button
+              data-scroll-value="-1"
+              id="prev-story"
+              class="w-16 h-16 rounded-2xl bg-gray-200 hover:bg-black hover:text-white"
+            >
               <i class="fa-solid fa-arrow-left"></i>
             </button>
-            <button class="w-16 h-16 rounded-2xl bg-black text-white">
+            <button
+              data-scroll-value="1"
+              id="next-story"
+              class="w-16 h-16 rounded-2xl bg-gray-200 hover:bg-black text-black hover:text-white"
+            >
               <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
         </div>
 
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 max-w-2xl text-left">
+        <h2
+          class="text-3xl md:text-4xl font-bold mb-12 max-w-2xl text-left px-6"
+        >
           Real Stories. Real Success.
         </h2>
 
-        <div class="flex flex-col gap-6">
-          <div class="flex gap-6">
-            <!-- card -->
+        <div class="flex flex-col">
+          <div class="relative py-24 overflow-hidden">
             <div
-              class="text-start w-[550px] h-[200px] py-6 px-6 rounded-2xl drop-shadow-[0_4px_6px_rgba(107,114,128,0.3)] relative bg-white pt-12 clip-top-half-circle"
+              id="stories-slider"
+              class="flex  gap-6 transition-transform duration-500 ease-in-out pl-[50%]"
             >
+              <!-- card -->
               <div
-                class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full overflow-hidden border border-gray-300"
+                class="story-card flex-shrink-0 w-full sm:w-[550px] h-auto rounded-2xl drop-shadow-[0_4px_6px_rgba(107,114,128,0.3)] relative"
               >
-                <img
-                  src="public/5249064b15e9c12802063c7e962d12dac4025259.jpg"
-                  class="w-full h-full object-cover"
-                  alt=""
-                />
+                <div
+                  class="absolute z-50 -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full overflow-hidden border border-gray-300"
+                >
+                  <img
+                    src="public/5249064b15e9c12802063c7e962d12dac4025259.jpg"
+                    class="w-full h-full object-cover"
+                    alt=""
+                  />
+                </div>
+
+                <div
+                  data-card-cliped
+                  class="relative overflow-hidden bg-white text-start py-6 px-6 pt-12 rounded-2xl"
+                >
+                  <p class="text-gray-600 pb-6">
+                    Switching to this host was the best decision for my online
+                    store. The free migration was smooth and I feel so much more
+                    secure
+                  </p>
+                  <h4 class="font-semibold text-lg pb-2">Seif Hossam</h4>
+                  <div class="flex justify-between">
+                    <p class="text-gray-600">user</p>
+                    <p>5.0 <i class="fa fa-solid fa-star"></i></p>
+                  </div>
+                </div>
               </div>
-              <p class="text-gray-600 pb-6">
-                Switching to this host was the best decision for my online
-                store. The free migration was smooth and I feel so much more
-                secure
-              </p>
-              <h4 class="font-semibold text-lg pb-2">Seif Hossam</h4>
-              <div class="flex justify-between">
-                <p class="text-gray-600">user</p>
-                <p>5.0 <i class="fa fa-solid fa-star"></i></p>
-              </div>
-            </div>
-            <!-- card -->
-            <div
-              class="text-start w-[550px] h-[200px] py-6 px-6 rounded-2xl drop-shadow-[0_4px_6px_rgba(107,114,128,0.3)] relative bg-white pt-12 clip-top-half-circle"
-            >
+              <!-- card -->
               <div
-                class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full overflow-hidden border border-gray-300"
+                class="story-card flex-shrink-0 w-full sm:w-[550px] h-auto rounded-2xl drop-shadow-[0_4px_6px_rgba(107,114,128,0.3)] relative"
               >
-                <img
-                  src="public/5249064b15e9c12802063c7e962d12dac4025259.jpg"
-                  class="w-full h-full object-cover"
-                  alt=""
-                />
+                <div
+                  class="absolute z-50 -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full overflow-hidden border border-gray-300"
+                >
+                  <img
+                    src="public/5249064b15e9c12802063c7e962d12dac4025259.jpg"
+                    class="w-full h-full object-cover"
+                    alt=""
+                  />
+                </div>
+
+                <div
+                  data-card-cliped
+                  class="relative overflow-hidden bg-white text-start py-6 px-6 pt-12 rounded-2xl"
+                >
+                  <p class="text-gray-600 pb-6">
+                    Switching to this host was the best decision for my online
+                    store. The free migration was smooth and I feel so much more
+                    secure
+                  </p>
+                  <h4 class="font-semibold text-lg pb-2">Seif Hossam</h4>
+                  <div class="flex justify-between">
+                    <p class="text-gray-600">user</p>
+                    <p>5.0 <i class="fa fa-solid fa-star"></i></p>
+                  </div>
+                </div>
               </div>
-              <p class="text-gray-600 pb-6">
-                Switching to this host was the best decision for my online
-                store. The free migration was smooth and I feel so much more
-                secure
-              </p>
-              <h4 class="font-semibold text-lg pb-2">Seif Hossam</h4>
-              <div class="flex justify-between">
-                <p class="text-gray-600">user</p>
-                <p>5.0 <i class="fa fa-solid fa-star"></i></p>
-              </div>
-            </div>
-            <!-- card -->
-            <div
-              class="text-start w-[550px] h-[200px] py-6 px-6 rounded-2xl drop-shadow-[0_4px_6px_rgba(107,114,128,0.3)] relative bg-white pt-12 clip-top-half-circle"
-            >
+              <!-- card -->
               <div
-                class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full overflow-hidden border border-gray-300"
+                class="story-card flex-shrink-0 w-full sm:w-[550px] h-auto rounded-2xl drop-shadow-[0_4px_6px_rgba(107,114,128,0.3)] relative"
               >
-                <img
-                  src="public/5249064b15e9c12802063c7e962d12dac4025259.jpg"
-                  class="w-full h-full object-cover"
-                  alt=""
-                />
+                <div
+                  class="absolute z-50 -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full overflow-hidden border border-gray-300"
+                >
+                  <img
+                    src="public/5249064b15e9c12802063c7e962d12dac4025259.jpg"
+                    class="w-full h-full object-cover"
+                    alt=""
+                  />
+                </div>
+
+                <div
+                  data-card-cliped
+                  class="relative overflow-hidden bg-white text-start py-6 px-6 pt-12 rounded-2xl"
+                >
+                  <p class="text-gray-600 pb-6">
+                    Switching to this host was the best decision for my online
+                    store. The free migration was smooth and I feel so much more
+                    secure
+                  </p>
+                  <h4 class="font-semibold text-lg pb-2">Seif Hossam</h4>
+                  <div class="flex justify-between">
+                    <p class="text-gray-600">user</p>
+                    <p>5.0 <i class="fa fa-solid fa-star"></i></p>
+                  </div>
+                </div>
               </div>
-              <p class="text-gray-600 pb-6">
-                Switching to this host was the best decision for my online
-                store. The free migration was smooth and I feel so much more
-                secure
-              </p>
-              <h4 class="font-semibold text-lg pb-2">Seif Hossam</h4>
-              <div class="flex justify-between">
-                <p class="text-gray-600">user</p>
-                <p>5.0 <i class="fa fa-solid fa-star"></i></p>
+              <!-- card -->
+              <div
+                class="story-card flex-shrink-0 w-full sm:w-[550px] h-auto rounded-2xl drop-shadow-[0_4px_6px_rgba(107,114,128,0.3)] relative"
+              >
+                <div
+                  class="absolute z-50 -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full overflow-hidden border border-gray-300"
+                >
+                  <img
+                    src="public/5249064b15e9c12802063c7e962d12dac4025259.jpg"
+                    class="w-full h-full object-cover"
+                    alt=""
+                  />
+                </div>
+
+                <div
+                  data-card-cliped
+                  class="relative overflow-hidden bg-white text-start py-6 px-6 pt-12 rounded-2xl"
+                >
+                  <p class="text-gray-600 pb-6">
+                    Switching to this host was the best decision for my online
+                    store. The free migration was smooth and I feel so much more
+                    secure
+                  </p>
+                  <h4 class="font-semibold text-lg pb-2">Seif Hossam</h4>
+                  <div class="flex justify-between">
+                    <p class="text-gray-600">user</p>
+                    <p>5.0 <i class="fa fa-solid fa-star"></i></p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="flex items-center justify-center space-x-1">
-            <span class="block w-8 h-2 rounded-full bg-gray-400"></span>
-            <span class="block w-8 h-2 rounded-full bg-black"></span>
-            <span class="block w-8 h-2 rounded-full bg-gray-400"></span>
-            <span class="block w-8 h-2 rounded-full bg-gray-400"></span>
+
+          <div class="flex items-center justify-center space-x-1 px-6">
+            <span
+              data-card-selector
+              class="cursor-pointer block w-8 h-2 rounded-full bg-gray-400"
+            ></span>
+            <span
+              data-card-selector
+              class="cursor-pointer block w-8 h-2 rounded-full bg-gray-400"
+            ></span>
+            <span
+              data-card-selector
+              class="cursor-pointer block w-8 h-2 rounded-full bg-gray-400"
+            ></span>
+            <span
+              data-card-selector
+              class="cursor-pointer block w-8 h-2 rounded-full bg-gray-400"
+            ></span>
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="bg-black text-white px-6 py-12">
-      <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
+    <footer class="bg-black text-white px-4 sm:px-6 py-12">
+      <div class="max-w-[1600px] mx-auto">
         <!-- Logo + Text Section -->
-        <div class="md:col-span-1 space-y-4">
-          <div class="flex gap-2 items-center">
-            <img src="/public/hostina.svg" alt="" />
-            <h2 class="text-2xl font-bold">Hostina</h2>
+        <div class="w-full grid grid-cols-1 md:grid-cols-10 gap-8">
+          <div class="md:col-span-3 space-y-4 w-full">
+            <div class="flex gap-2 items-center">
+              <img src="/public/hostina.svg" alt="Hostina logo" />
+              <h2 class="text-2xl font-bold">Hostina</h2>
+            </div>
+            <p class="text-sm text-gray-300 leading-[30px] md:leading-[40px]">
+              Empowering your online presence with reliable hosting, expert
+              support, and honest pricing. Join thousands who trust us to keep
+              their websites secure, fast, and always online.
+            </p>
           </div>
-          <p class="text-sm text-gray-300">
-            Empowering your online presence with reliable hosting, expert
-            support, and honest pricing. Join thousands who trust us to keep
-            their websites secure, fast, and always online.
-          </p>
+
+          <!-- Links Section -->
+          <div class="md:col-span-7 flex flex-col md:flex-row gap-8 md:gap-12">
+            <!-- Domains -->
+            <div>
+              <h3 class="text-xl md:text-2xl font-semibold mb-3">Domains</h3>
+              <ul class="space-y-2 text-base md:text-lg text-gray-300">
+                <li>
+                  <a href="#" class="hover:text-white">Register Domain</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-white">Transfer Domain</a>
+                </li>
+                <li><a href="#" class="hover:text-white">Domain Search</a></li>
+              </ul>
+            </div>
+
+            <!-- Servers -->
+            <div>
+              <h3 class="text-xl md:text-2xl font-semibold mb-3">Servers</h3>
+              <ul class="space-y-2 text-sm md:text-base text-gray-300">
+                <li>
+                  <a href="#" class="hover:text-white"
+                    >Virtual Private Servers</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-white">Dedicated Servers</a>
+                </li>
+                <li><a href="#" class="hover:text-white">Game Servers</a></li>
+              </ul>
+            </div>
+
+            <!-- Hosting -->
+            <div>
+              <h3 class="text-xl md:text-2xl font-semibold mb-3">Hosting</h3>
+              <ul class="space-y-2 text-base md:text-lg text-gray-300">
+                <li><a href="#" class="hover:text-white">Shared Hosting</a></li>
+                <li>
+                  <a href="#" class="hover:text-white">WordPress Hosting</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-white">Reseller Hosting</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Contact Us -->
+            <div>
+              <h3 class="text-xl md:text-2xl font-semibold mb-3">Contact Us</h3>
+              <ul class="space-y-2 text-base md:text-lg text-gray-300">
+                <li>
+                  <a href="mailto:contact@company.com" class="hover:text-white"
+                    >contact@company.com</a
+                  >
+                </li>
+                <li>
+                  <a href="tel:+14146875892" class="hover:text-white"
+                    >(414) 687 - 5892</a
+                  >
+                </li>
+                <li class="text-gray-300">794 Mcallister</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <!-- Domains -->
-        <div>
-          <h3 class="text-lg font-semibold mb-3">Domains</h3>
-          <ul class="space-y-2 text-sm text-gray-300">
-            <li><a href="#" class="hover:text-white">Register Domain</a></li>
-            <li><a href="#" class="hover:text-white">Transfer Domain</a></li>
-            <li><a href="#" class="hover:text-white">Domain Search</a></li>
-          </ul>
-        </div>
-
-        <!-- Servers -->
-        <div>
-          <h3 class="text-lg font-semibold mb-3">Servers</h3>
-          <ul class="space-y-2 text-sm text-gray-300">
-            <li>
-              <a href="#" class="hover:text-white">Virtual Private Servers</a>
-            </li>
-            <li><a href="#" class="hover:text-white">Dedicated Servers</a></li>
-            <li><a href="#" class="hover:text-white">Game Servers</a></li>
-          </ul>
-        </div>
-
-        <!-- Hosting -->
-        <div>
-          <h3 class="text-lg font-semibold mb-3">Hosting</h3>
-          <ul class="space-y-2 text-sm text-gray-300">
-            <li><a href="#" class="hover:text-white">Shared Hosting</a></li>
-            <li><a href="#" class="hover:text-white">WordPress Hosting</a></li>
-            <li><a href="#" class="hover:text-white">Reseller Hosting</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact Us -->
-        <div>
-          <h3 class="text-lg font-semibold mb-3">Contact Us</h3>
-          <ul class="space-y-2 text-sm text-gray-300">
-            <li>
-              <a href="mailto:contact@company.com" class="hover:text-white"
-                >contact@company.com</a
-              >
-            </li>
-            <li>
-              <a href="tel:+14146875892" class="hover:text-white"
-                >(414) 687 - 5892</a
-              >
-            </li>
-            <li class="text-gray-300">794 Mcallister</li>
-          </ul>
+        <!-- Footer Bottom -->
+        <div
+          class="w-full border-t border-white mt-12 pt-6 text-center text-sm md:text-base"
+        >
+          <p>© 2025 Hostina. All rights reserved.</p>
         </div>
       </div>
     </footer>
 
     <script src="script.js"></script>
+
+    <script></script>
   </body>
 </html>

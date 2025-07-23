@@ -1,10 +1,10 @@
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background-color: #000;
-  
 
   font-family: "Nunito", sans-serif;
   font-style: normal;
@@ -25,19 +25,26 @@ body, html {
   text-decoration: underline;
 }
 
-
 /* stars */
 .star {
   position: absolute;
-  width: 2px;
-  height: 2px;
   border-radius: 50%;
-  background-color: white;
+  background: white;
   opacity: 0.8;
+  transform: translate(0, 0) scale(0.5);
+  animation: fly-to-center 2.6s cubic-bezier(1, 0, 1, 0.7);
+  pointer-events: none;
   z-index: 0;
+  scale: 1;
+  box-shadow: 0 10px 50px red;
 }
 
-
+@keyframes fly-to-center {
+  to {
+    transform: translate(0, 0) scale(4);
+    opacity: 1;
+  }
+}
 
 /* hero ball */
 .back-glow {
@@ -47,4 +54,46 @@ body, html {
   background-color: black;
   box-shadow: 0 0 40px 0px white;
   opacity: 0.5;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* stories section */
+
+.story-card {
+  opacity: 0.3;
+  scale: 0.9;
+  transition: 0.3s;
+}
+.story-card.active {
+  scale: 1;
+  opacity: 1;
+}
+
+[data-card-selector].active {
+  background-color: black;
+  color: white;
+}
+
+#pricing .shadow-xl:hover{
+  background-color: black;
+  color: white;
+}
+#pricing .shadow-xl:hover i,
+#pricing .shadow-xl:hover span,
+#pricing .shadow-xl:hover p{
+  color: white;
+}
+#pricing .shadow-xl:hover button{
+  background-color: white;
+  color: black;
 }
